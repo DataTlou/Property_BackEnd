@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete , Query, Put} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './user.entity'
+import { NotFoundException } from '@nestjs/common/exceptions';
 
 @Controller('users')
 export class UsersController {
@@ -37,14 +38,16 @@ export class UsersController {
   }
 
   @Get('get/name/:name')
-  findName(@Param('name') name:string)
+  async findName(@Param('name') name:string): Promise<User>
   {
-    const user = this.usersService.getOneByName(name);
-    if(user === null)
-    { 
-      return "User is not found";
+    try
+    {
+      const user = await this.usersService.getOneByName(name);
+      return user;
     }
-
-    return  user;
+    catch(err)
+    {
+      throw new NotFoundException();
+    }
   }
 }
