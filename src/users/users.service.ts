@@ -3,7 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, UpdateResult, DeleteResult } from 'typeorm';
-import { User } from './user.entity';
+import { User } from '../entities/user.entity';
 import { NotFoundError } from 'rxjs';
 import { error } from 'console';
 
