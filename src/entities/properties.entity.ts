@@ -13,9 +13,6 @@ export class Properties
     @Column()
     Address: string
 
-    @Column()
-    Type: string
-
     @ManyToOne(() => User, user => user.properties)
     Owner: User
 }

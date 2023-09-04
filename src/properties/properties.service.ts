@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { UpdatePropertyDto } from './dto/update-property.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Properties } from 'src/entities/properties.entity';
 import { Repository } from 'typeorm';
@@ -22,9 +21,6 @@ export class PropertiesService {
     return `This action returns a #${id} property`;
   }
 
-  update(id: number, updatePropertyDto: UpdatePropertyDto) {
-    return `This action updates a #${id} property`;
-  }
 
   remove(id: number) {
     return `This action removes a #${id} property`;

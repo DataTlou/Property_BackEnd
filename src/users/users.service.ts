@@ -19,8 +19,8 @@ export class UsersService {
       console.error('Error from service is:', error);
     }
   }
-  async create(user: User): Promise<User> {
-    return await this.UserRepository.save(user);
+  async create(User: User): Promise<User> {
+    return await this.UserRepository.save(User);
   }
   async getOneById(id): Promise<User | undefined> {
     try {
